@@ -1,0 +1,63 @@
+                                                /* All meter data in one page */
+/* Total page view styling */
+.dashboard-body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0; /* Ensure no spacing around body */
+    background-color: #f0f0f0;
+    width:fit-content;
+    
+}
+
+.dashboard {
+    display: flex;
+    justify-content: center;
+    background-color: #f1f3f6;
+    padding: 20px 20px; /* Add top padding to prevent overlap with the fixed header */
+    
+}
+
+/* Container to hold all meter data styling */
+.grid-container {
+    margin-top: 45px;
+    padding: 15px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+    width:fit-content;
+    outline: 2px solid black;
+}
+
+/* Each meter data */
+.bus-card{
+    background-color: rgb(255, 255, 255);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.bus-card:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* page close button */
+#closebutton{
+    margin: 10px;
+    padding: 5px;
+    border-radius: 10px;
+    background-color:#007bffa2;
+    width: 180px;
+    height: 40px;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    position: absolute;
+    right: 50px;
+}
+
+#closebutton:hover{
+    background-color: rgb(189, 189, 189);
+}

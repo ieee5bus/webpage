@@ -1,0 +1,265 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family:  Georgia, 'Times New Roman', Times, serif;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 40px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+    background:transparent;
+    color: mintcream;
+}
+
+.logo {
+    font-size: 35px;
+    user-select: none;
+}
+.logo a {
+    text-decoration: none;
+    color: inherit; 
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("./images/regbackground.jpg") no-repeat center center;
+    background-size: cover;
+    color: mintcream;
+}
+
+.container {
+    background: #013b75aa;
+    backdrop-filter: blur(1px);
+    width: 425px;
+    min-height: auto; 
+    height: auto; 
+    padding: 27px;
+    margin: 50px auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(214, 214, 214, 0.889);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: all 0.5s ease-in-out; 
+    overflow: hidden;
+}
+
+
+form{
+    width: 100%;
+    font-size: 1.2em;
+    color: mintcream;
+    text-align: center;
+}
+
+.form-title{
+    color: mintcream;
+    font-size:2rem;
+    font-weight:bold;
+    justify-content: center;
+    text-align:center;
+    padding: 5px 0;
+    margin-bottom: 40px;
+}
+
+input{
+    color:mintcream;
+    width:100%;
+    background-color:transparent;
+    border:none;
+    border-bottom:1px solid mintcream;
+    padding-left:1.5rem;
+    font-size:20px;
+}
+
+.input-group{
+    text-align: center;
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+    font-family:  Georgia, 'Times New Roman', Times, serif;
+
+}
+.input-group i{
+    position:absolute;
+    color:mintcream
+}
+input:focus{
+    background-color: transparent;
+    outline:transparent;
+    border-bottom:2px solid mintcream;
+}
+
+input::placeholder{
+    color:transparent;
+}
+
+label{
+    color:mintcream;
+    position:relative;
+    left:1.2em;
+    top:-1.3em;
+    cursor:auto;
+    transition:0.5s ease-in-out;
+}
+
+input:focus~label,
+input:not(:placeholder-shown) ~ label {
+    top:-3em;
+    color:mintcream;
+    font-size:20px;
+}
+
+.recover{
+    text-align:right;
+    font-size:1rem;
+    margin-top: -10px;
+    margin-bottom:1rem;
+
+}
+.recover a{
+    text-decoration:none;
+    color:mintcream;
+}
+
+.recover a:hover {
+    text-decoration:underline;
+}
+
+button{
+    font-size:1.2rem;
+    padding:8px 0;
+    border-radius:5px;
+    outline:none;
+    border:none;
+    width:100%;
+    background:mintcream;
+    color: #162938;
+    cursor:pointer;
+    transition:0.9s;
+}
+
+button:hover{
+    color: #162938;
+    background:rgba(193, 196, 207, 0.856);
+}
+
+.or{
+    font-size:1.1rem;
+    margin-top:0.5rem;
+    text-align:center;
+}
+
+.icons{
+    text-align:center;
+}
+
+.icons i{
+    color:mintcream;
+    padding:0.8rem 1.5rem;
+    border-radius:10px;
+    font-size:1.5rem;
+    cursor:pointer;
+    border:2px solid #162938;
+    margin:0 15px;
+    transition:1s;
+}
+.icons i:hover{
+    background:#162938;
+    font-size:1.6rem;
+    border:2px solid mintcream;
+}
+
+.links {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    display: flex;
+    justify-content: center; 
+    gap: 10px;
+}
+
+.links p {
+    font-weight: bold;
+    margin-top: 5px;
+    display: inline; 
+}
+
+.links button {
+    background: none;
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: inherit;
+    padding: 0;
+}
+
+#signUpButton, #signInButton{
+    color:mintcream;
+    border:none;
+    background-color:transparent;
+    font-size:1rem;
+    font-weight:bold;
+}
+
+#signUpButton:hover, #signInButton:hover {
+    text-decoration:underline;
+    color:ivory;
+} 
+
+@keyframes fadeInOut { 
+    0% { opacity: 0; transform: translateY(-10px); } 
+    10% { opacity: 1; transform: translateY(0); } 
+    90% { opacity: 1; transform: translateY(0); } 
+    100% { opacity: 0; transform: translateY(-10px); } 
+}
+
+.messageDiv{
+    background-color:hsl(343, 90%, 28%);
+    color:white;
+    padding:10px 20px;
+    margin:10px;
+    border-radius: 5px;
+    font-size:1rem;
+    opacity:0;
+    animation: fadeInOut 5s forwards;
+}
+
+#goback {
+    backdrop-filter: blur(25px);
+    width: 120px;
+    height: 42px;
+    background: transparent;
+    border: 2px solid mintcream;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    color: mintcream;
+    font-weight: 500;
+    margin-left: 30px;
+    transition: 0.5s;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#goback:hover {
+    background: mintcream;
+    color: #162938;
+}
