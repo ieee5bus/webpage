@@ -1,0 +1,184 @@
+* {
+    text-decoration: none;
+}
+
+.dashboard-body {
+    background: linear-gradient(to bottom, #e0eafc, #cfdef3); 
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 100px auto;
+    align-items: start;
+    justify-content: flex-start;
+    outline: 2px solid black;
+    font-family: 'Times New Roman', Times, sans-serif;
+    margin: 10px;
+    padding: 15px;
+    height: 100vh;
+    width: 97%;
+    position: relative;
+}
+
+.header {
+    grid-row: 1/1;
+    height: 85px;
+    background: linear-gradient(to top, #03294f, #1969b0);
+    outline: 2px solid rgb(8, 1, 20);
+    color: mintcream;
+    padding: 10px;
+    text-align: left;
+    top: 3%;
+    left: 1%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 98%;
+    box-sizing: border-box;
+    position: absolute;
+}
+
+.logo {
+    font-size: 30px;
+}
+
+.display-settings a {
+    position: relative;
+    font-size: 20px;
+    color: mintcream;
+    text-decoration: none;
+    font-weight: 550;
+    margin-left: 40px;
+}
+
+.display-settings a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: mintcream;
+    border-radius: 6px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.5s;
+}
+
+.display-settings a:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+.control {
+    grid-row: 2;
+    width: 95%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr auto;
+    align-items: start;
+    gap: 1%;
+    margin: 1%;
+    padding: 0.5%;
+    background: #eaeff0;
+    border-radius: 0.5%;
+    outline: 2px solid black;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    left:15px;
+    position: absolute;
+}
+
+h1 {
+    margin-left: 10px;
+    grid-row: 1/1;
+    grid-column: 1/1;
+}
+
+.mode {
+    grid-column: 2;
+    grid-row: 1;
+}
+.manualcontrol {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.manualcontrolreadings {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: start;
+    align-self: center; 
+    margin-right: 10px;
+}
+
+.manualcontrol p {
+    padding: 1.5px;
+    margin-left: 10px;
+    font-size: 18px;
+}
+
+.manualcontrolreadings table {
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    border: 1px solid black;
+    border-collapse: collapse;
+    border-spacing: 0 10px; 
+}
+
+.manualcontrolreadings th, 
+.manualcontrolreadings tr,
+.manualcontrolreadings td {
+    border: 1px solid black;
+    padding: 0.1rem 0.5rem;
+}
+
+.linereadings {
+    align-items: center;
+    margin-left: 2px;
+    margin-top: 20px;
+}
+
+button {
+    background-color: #7fafc7; 
+    margin-left: 10px;
+    border-radius: 10px;
+    padding: 7px;
+    width: 105px;
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    transition: background 0.3s ease;
+}
+
+.choosebutton:hover {
+    background-color: #5a5a5a; 
+    color: mintcream;
+}
+
+button[id$="on"]:hover {
+    background-color: #148f1a; 
+}
+
+button[id$="off"]:hover {
+    background-color: #ad3944;  
+}
+
+.blink-red {
+    animation: blink 1s infinite alternate;
+    color: red; 
+    font-weight: bold;
+}
+
+@keyframes blink {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+button.on-active {
+    background-color: #4daf52;
+}
+
+button.off-active {
+    background-color: #a01b28; 
+}

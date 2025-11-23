@@ -1,0 +1,212 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 40px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+    background: transparent;
+    color: mintcream;
+}
+
+section {
+    padding: 100px 20px;
+    min-height: 100vh;
+}
+
+#home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("./images/controlbackground.png") no-repeat center center;
+    background-size: cover;
+}
+
+.logo {
+    font-size: 35px;
+    user-select: none;
+}
+.logo a {
+    text-decoration: none;
+    color: inherit; /* Keeps the text color same as the parent */
+}
+
+.navigation a {
+    position: relative;
+    font-size: 20px;
+    color: mintcream;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 30px;
+}
+
+.navigation a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: mintcream;
+    border-radius: 6px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.5s;
+}
+
+.navigation a:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+.navigation .btnLogin-popup {
+    width: 120px;
+    height: 40px;
+    background: transparent;
+    border: 2.5px solid mintcream;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    color: mintcream;
+    font-weight: 500;
+    margin-left: 30px;
+    transition: 0.5s;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.navigation .btnLogin-popup:hover {
+    background: mintcream;
+    color: #162938;
+}
+
+.wrapper {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    position: relative;
+    width: 400px;
+    height: 400px;
+    background: transparent;
+    border: 2.5px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    backdrop-filter: blur(30px);
+    box-shadow: 0 0 100px rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.5s ease;
+    transform: scale(0);
+    z-index: 1000;
+}
+
+.wrapper.active-popup {
+    transform: scale(1);
+}
+
+.wrapper .form-box {
+    width: 100%;
+    padding: 40px;
+}
+
+.wrapper .icon-close {
+    position: absolute;
+    top: -2.5px; /* Offset by the wrapper's border width */
+    right: -2.5px; /* Offset by the wrapper's border width */
+    width: 45px;
+    height: 45px;
+    background-color: #162938;
+    font-size: 2em;
+    color: mintcream;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    cursor: pointer;
+    z-index: 1;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.wrapper .icon-close:hover {
+    background: lightgray;
+    color: #162938;
+}
+
+.form-box h2 {
+    font-size: 2em;
+    color: #162938;
+    text-align: center;
+}
+
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #162938;
+    margin: 30px 0;
+}
+
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1.2em;
+    color: #162938;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.input-box input:focus ~ label,
+.input-box input:valid ~ label {
+    top: -5px;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1.2em;
+    color: #162938;
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+}
+
+.input-box .icon {
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    color: #162938;
+    line-height: 57px;
+}
+
+.btn {
+    width: 100%;
+    height: 45px;
+    background: #162938;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.2em;
+    color: mintcream;
+    font-weight: 550;
+}
+
+.btn:hover {
+    background: lightgray;
+    color: #162938;
+}

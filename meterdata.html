@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meter Parameters Visualization</title>
+    <link rel="stylesheet" href="style3.css">
+</head>
+<body class="meter-body">
+    <!-- Page Content -->
+    <div id="image-modal" class="modal">
+        <!-- Graph on left and meter information on right -->
+        <div class="modal-content">
+            <button class="close-modal">X</button>
+            <h2 id="modal-title">Image for Bus trail</h2>
+            <div class="chart-container">
+                <div class="chart-wrapper">
+                    <canvas id="combined-graph" class="chart-tab" width="875" height="480"></canvas>
+                    <canvas id="voltage-graph" class="chart-tab active" width="875" height="480"></canvas>
+                    <canvas id="power-graph" class="chart-tab" width="875" height="480"></canvas>
+                    <canvas id="current-graph" class="chart-tab" width="875" height="480"></canvas>
+                </div>
+                <button class="nav-arrow left" onclick="switchTab(-1)">◀</button>
+                <button class="nav-arrow right" onclick="switchTab(1)">▶</button>
+            </div>
+            <button id="csv-download-btn">Download CSV File</button>
+            <h2 id="modal-bus-id">Bus meter Details</h2>
+            <!-- Meter information details -->
+            <div class="bus_meter">
+                <p><strong>Voltage (L-n):</strong><span id="voltageln">-</span><strong> V</strong></p>
+                <p><strong>Current:</strong><span id="current">-</span><strong> A</strong></p>
+                <p><strong>Power Factor:</strong><span id="powerfactor">-</span></p>
+                <p><strong>Power:</strong><span id="power">-</span><strong> W</strong></p>
+                <p><strong>Frequency:</strong><span id="frequency">-</span><strong> Hz</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="script3.js" defer></script>
+</body>
+</html>

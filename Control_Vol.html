@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Voltage Control</title>
+    <link rel="stylesheet" href="Control_vol.css">
+</head>
+
+<!-- Whole dashboard Body -->
+    <body class="dashboard-body">
+        <div class="header">
+            <h2 class="logo">Control on IEEE 5-Bus</h2>
+            <div class="display-settings">
+                <a href="#!" id="freqcontrol">Frequency control</a>
+                <a href="#!" id="closebutton">Dashboard</a>
+            </div> 
+        </div>
+
+    <div class="control">
+        <div class="freqcontrol">
+            <h1>Voltage Control</h1>
+        </div>
+        <div class="mode">
+            <h3>Choose the type of mode to be operated</h3>
+            <p><strong>Current Mode of Operation:</strong><span id="currentmode"> Click any one</span></p>
+            <button class="choosebutton" id="automatic">Automatic</button>
+            <button class="choosebutton" id="manual">Manual</button>
+        </div>
+
+        <div class="manualcontrol" id="manualcontrol" style="display:none;">
+            <h3>Please select the Voltage Support Unit to switch</h3>
+            <table>
+                <tr>
+                    <th>Voltage Support Unit 1 (8uF)</th>
+                    <th><button id="cap1on">ON</button></th>
+                    <th><button id="cap1off">OFF</button></th>
+                </tr>
+                <tr>
+                    <th>Voltage Support Unit 2 (16uF)</th>
+                    <th><button id="cap2on">ON</button></th>
+                    <th><button id="cap2off">OFF</button></th>
+                </tr>
+                <tr>
+                    <th>Voltage Support Unit 3 (32uF)</th>
+                    <th><button id="cap3on">ON</button></th>
+                    <th><button id="cap3off">OFF</button></th>
+                </tr>
+            </table>
+            <p><strong>Total Capacitance switched:</strong><span id="capshutdown"> 0 uF</span></p>
+        </div>
+        <div class="manualcontrolreadings" id="manualcontrolreadings" style="display:none;">
+            
+            <h3>Meter Readings</h3>
+            <!-- Bus Voltages -->
+            <table>
+                <tr>
+                    <th>Component</th>
+                    <th><strong>Bus 1</strong></th>
+                    <th><strong>Bus 2</strong></th>
+                    <th><strong>Bus 3</strong></th>
+                    <th><strong>Bus 4</strong></th>
+                    <th><strong>Bus 5</strong></th>
+                </tr>
+                <tr>
+                    <th>Voltage (V)</th>
+                    <td><p><span id="voltageln-1">-</span></p></td>
+                    <td><p><span id="voltageln-2">-</span></p></td>
+                    <td><p><span id="voltageln-3">-</span></p></td>
+                    <td><p><span id="voltageln-4">-</span></p></td>
+                    <td><p><span id="voltageln-5">-</span></p></td>
+                </tr>
+                <tr>
+                    <th>Power Factor</th>
+                    <td><p><span id="powerfactor-1">-</span></p></td>
+                    <td><p><span id="powerfactor-2">-</span></p></td>
+                    <td><p><span id="powerfactor-3">-</span></p></td>
+                    <td><p><span id="powerfactor-4">-</span></p></td>
+                    <td><p><span id="powerfactor-5">-</span></p></td>
+                </tr>
+            </table>
+
+            <!-- Line Voltages -->
+            <table class="linereadings">
+                <tr>
+                    <th>Component</th>
+                    <th><strong>Line 1-2</strong></th>
+                    <th><strong>Line 1-3</strong></th>
+                    <th><strong>Line 2-3</strong></th>
+                    <th><strong>Line 2-4</strong></th>
+                    <th><strong>Line 2-5</strong></th>
+                    <th><strong>Line 3-4</strong></th>
+                    <th><strong>Line 4-5</strong></th>
+                </tr>
+                <tr>
+                    <th>Voltage (V)</th>
+                    <td><p><span id="voltageln-6">-</span></p></td>
+                    <td><p><span id="voltageln-7">-</span></p></td>
+                    <td><p><span id="voltageln-8">-</span></p></td>
+                    <td><p><span id="voltageln-9">-</span></p></td>
+                    <td><p><span id="voltageln-10">-</span></p></td>
+                    <td><p><span id="voltageln-11">-</span></p></td>
+                    <td><p><span id="voltageln-12">-</span></p></td>
+                </tr>
+                <tr>
+                    <th>Power Factor</th>
+                    <td><p><span id="powerfactor-6">-</span></p></td>
+                    <td><p><span id="powerfactor-7">-</span></p></td>
+                    <td><p><span id="powerfactor-8">-</span></p></td>
+                    <td><p><span id="powerfactor-9">-</span></p></td>
+                    <td><p><span id="powerfactor-10">-</span></p></td>
+                    <td><p><span id="powerfactor-11">-</span></p></td>
+                    <td><p><span id="powerfactor-12">-</span></p></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="Control_vol.js"></script>
+
+</body>
+</html>

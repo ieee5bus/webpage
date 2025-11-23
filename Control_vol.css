@@ -1,0 +1,163 @@
+* {
+    text-decoration: none;
+}
+
+.dashboard-body {
+    background: linear-gradient(to bottom, #e0eafc, #cfdef3); 
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    align-items: start;
+    justify-content: flex-start;
+    outline: 2px solid black;
+    font-family: 'Times New Roman', Times, sans-serif;
+    margin: 10px;
+    padding: 15px;
+    min-height: 100vh;
+}
+
+.header {
+    height: 85px;
+    background: linear-gradient(to top, #03294f, #1969b0);
+    outline: 2px solid rgb(8, 1, 20);
+    color: mintcream;
+    padding: 10px;
+    text-align: left;
+    margin: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.logo {
+    font-size: 30px;
+}
+
+.display-settings a {
+    position: relative;
+    font-size: 20px;
+    color: mintcream;
+    text-decoration: none;
+    font-weight: 550;
+    margin-left: 40px;
+}
+
+.display-settings a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: mintcream;
+    border-radius: 6px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.5s;
+}
+
+.display-settings a:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+.control {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    gap: 20px;
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    background: #eaeff0;
+    border-radius: 10px;
+    outline: 2px solid black;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    margin-left: 10px;
+    grid-row: 1/1;
+    grid-column: 1/1;
+}
+
+.mode {
+    grid-column: 2;
+    grid-row: 1;
+}
+.manualcontrol {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.manualcontrolreadings {
+    grid-row: 2;
+    grid-column: 2;
+    justify-self: start;
+    align-self: center; 
+    margin-right: 10px;
+}
+
+.manualcontrol p {
+    padding: 3px;
+    margin-left: 10px;
+    font-size: 24px;
+}
+
+.manualcontrolreadings table {
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.manualcontrolreadings th, 
+.manualcontrolreadings tr, 
+.manualcontrolreadings td {
+    border: 1px solid black;
+    padding: 0.1rem 0.5rem;
+}
+
+.linereadings {
+    align-items: center;
+    margin-left: 2px;
+    margin-top: 20px;
+}
+
+button {
+    background-color: #7fafc7; 
+    margin-left: 10px;
+    border-radius: 10px;
+    padding: 7px;
+    width: 105px;
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    transition: background 0.3s ease;
+}
+
+.choosebutton:hover {
+    background-color: #5a5a5a; 
+    color: mintcream;
+}
+
+button[id$="on"]:hover {
+    background-color: #148f1a; 
+}
+
+button[id$="off"]:hover {
+    background-color: #ad3944; 
+}
+
+button.on-active {
+    background-color: #4daf52;
+}
+button.off-active {
+    background-color: #a01b28; 
+}

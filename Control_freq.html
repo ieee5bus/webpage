@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Frequency Control</title>
+    <link rel="stylesheet" href="Control_freq.css?v=2">
+</head>
+
+<!-- Control Section Body -->
+<body class="dashboard-body">
+    <div class="header">
+        <h2 class="logo">Control on IEEE 5-Bus</h2>
+        <div class="display-settings">
+            <a href="#!" id="volcontrol">Voltage Control</a>
+            <a href="#!" id="closebutton">Dashboard</a>
+        </div>
+    </div>
+
+    <div class="control">
+        <div class="volcontrol">
+            <h1>Frequency Control</h1>
+        </div>
+
+        <div class="freq_calculation">
+            <button class="choosebutton" id="calculate">Calculate Load</button>
+            <p><strong>Suggested Load to shed: </strong><span id="suggested_load"> --- </span></p>
+        </div>
+
+        <div class="mode">
+            <h3>Choose the type of mode to be operated</h3>
+            <p><strong>Current Mode of Operation:</strong><span id="currentmode"> Click any one</span></p>
+            <button class="choosebutton" id="automatic">Automatic</button>
+            <button class="choosebutton" id="manual">Manual</button>
+        </div>
+
+        <!-- ON/OFF Buttons information -->
+        <div class="manualcontrol" id="manualcontrol" style="display:none;">
+            <h3>Please enter the region to shut down</h3>
+            <table>
+                <tr>
+                    <th>Region 1:</th>
+                    <th><button id="region140aon">(A) 40W ON</button></th>
+                    <th><button id="region140aoff">(A) 40W OFF</button></th>
+                    <th><button id="region140bon">(B) 40W ON</button></th>
+                    <th><button id="region140boff">(B) 40W OFF</button></th>
+                </tr>
+                <tr>
+                    <th> </th>
+                    <th><button id="region160on">60W ON</button></th>
+                    <th><button id="region160off">60W OFF</button></th>
+                    <th><button id="region1100on">100W ON</button></th>
+                    <th><button id="region1100off">100W OFF</button></th>
+                </tr>
+                <tr style="height: 10px;"></tr>
+                <tr>
+                    <th>Region 2: </th>
+                    <th><button id="region240on">40W ON</button></th>
+                    <th><button id="region240off">40W OFF</button></th>
+                    <th><button id="region2100aon"> (A) 100W ON</button></th>
+                    <th><button id="region2100aoff"> (A) 100W OFF</button></th>
+                </tr>
+                <tr>
+                    <th> </th>
+                    <th><button id="region2100bon">(B) 100W ON</button></th>
+                    <th><button id="region2100boff">(B) 100W OFF</button></th>
+                </tr>
+                <tr style="height: 10px;"></tr>
+                <tr>
+                    <th>Region 3: </th>
+                    <th><button id="region360aon">(A) 60W ON</button></th>
+                    <th><button id="region360aoff">(A) 60W OFF</button></th>
+                    <th><button id="region360bon">(B) 60W ON</button></th>
+                    <th><button id="region360boff">(B) 60W OFF</button></th>
+                </tr>
+                <tr>
+                    <th> </th>
+                    <th><button id="region3100aon">(A) 100W ON</button></th>
+                    <th><button id="region3100aoff">(A) 100W OFF</button></th>
+                    <th><button id="region3100bon">(B) 100W ON</button></th>
+                    <th><button id="region3100boff">(B) 100W OFF</button></th>
+                </tr>
+            </table>
+            <p><strong>Total Load Value ON: </strong><span id="loadon"> 0 W</span></p>
+            <p><strong>Shut down Load value: </strong><span id="loadshutdown"> 0 W</span></p>
+        </div>
+
+        <!-- Values Tabular Column - Power and Frequency -->
+        <div class="manualcontrolreadings" id="manualcontrolreadings" style="display:none;">
+            <h3>Meter Readings</h3>
+            <table>
+                <tr>
+                    <th>Component</th>
+                    <th><strong>Bus 1</strong></th>
+                    <th><strong>Bus 2</strong></th>
+                    <th><strong>Bus 3</strong></th>
+                    <th><strong>Bus 4</strong></th>
+                    <th><strong>Bus 5</strong></th>
+                </tr>
+                <tr>
+                    <th>Frequency (Hz)</th>
+                    <td>
+                        <p><span id="frequency-1">-</span></p>
+                    </td>
+                    <td>
+                        <p><span id="frequency-2">-</span></p>
+                    </td>
+                    <td>
+                        <p><span id="frequency-3">-</span></p>
+                    </td>
+                    <td>
+                        <p><span id="frequency-4">-</span></p>
+                    </td>
+                    <td>
+                        <p><span id="frequency-5">-</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Power (W)</th>
+                    <td>
+                        <p><span id="power-1">-</span></p>
+                    </td>
+                    <td>
+                        <p><span id="power-2">-</span></p>
+                    </td>
+                    <td>
+                        <p><span id="power-3">-</span></p>
+                    </td>
+                    <td>
+                        <p><span id="power-4">-</span></p>
+                    </td>
+                    <td>
+                        <p><span id="power-5">-</span></p>
+                    </td>
+                </tr>
+            </table>
+            <table class="linereadings">
+                <tr>
+                    <th>Component</th>
+                    <th><strong>Line 1-2</strong></th>
+                    <th><strong>Line 1-3</strong></th>
+                    <th><strong>Line 2-3</strong></th>
+                    <th><strong>Line 2-4</strong></th>
+                    <th><strong>Line 2-5</strong></th>
+                    <th><strong>Line 3-4</strong></th>
+                    <th><strong>Line 4-5</strong></th>
+                </tr>
+                <tr>
+                    <th>Frequency (Hz)</th>
+                    <td>
+                        <p><span id="frequency-6">-</span></p>
+                    </td>
+                    <td>
+                        <p><span id="frequency-7">-</span></p>
+                    </td>
+                    <td>
+                        <p><span id="frequency-8">-</span></p>
+                    </td>
+                    <td>
+                        <p><span id="frequency-9">-</span></p>
+                    </td>
+                    <td>
+                        <p><span id="frequency-10">-</span></p>
+                    </td>
+                    <td>
+                        <p><span id="frequency-11">-</span></p>
+                    </td>
+                    <td>
+                        <p><span id="frequency-12">-</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Power (W)</th>
+                    <td>
+                        <p><span id="power-6">-</span></p>
+                    </td>
+                    <td>
+                        <p><span id="power-7">-</span></p>
+                    </td>
+                    <td>
+                        <p><span id="power-8">-</span></p>
+                    </td>
+                    <td>
+                        <p><span id="power-9">-</span></p>
+                    </td>
+                    <td>
+                        <p><span id="power-10">-</span></p>
+                    </td>
+                    <td>
+                        <p><span id="power-11">-</span></p>
+                    </td>
+                    <td>
+                        <p><span id="power-12">-</span></p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="Control_freq.js"></script>
+
+</body>
+</html>

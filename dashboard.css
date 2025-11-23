@@ -1,0 +1,341 @@
+/* Dashboard page styling */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 98vh;
+  }
+
+.full-screen {
+    height: 100vh; 
+
+  }
+
+.dashboard-body {
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 100px auto;
+    outline: 2px solid #1969b0;
+    font-family: 'Times New Roman', Times, sans-serif;
+    margin: 10px;
+    padding: 0; 
+    background-color: #f0f0f0;
+}
+
+.header {
+    background: linear-gradient(to top, #03294f, #1969b0); 
+    outline: 2px solid rgb(8, 1, 20);
+    color: #f6f8fa;
+    grid-row: 1/1;
+    padding: 10px;
+    text-align: left;
+    margin: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.display-settings a{
+    position: relative;
+    font-size: 20px;
+    color: mintcream;
+    text-decoration: none;
+    font-weight: 550;
+    margin-left: 30px;
+}
+
+.display-settings a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: mintcream;
+    border-radius: 6px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+.display-settings a:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+.display-settings .logout {
+    font-family: 'Times New Roman', Times, sans-serif;
+    width: 120px;
+    height: 40px;
+    background-color: #911d10;
+    border: 2px solid mintcream;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    color: mintcream;
+    font-weight: 500;
+    margin-left: 30px;
+    transition: .5s;
+}
+
+.display-settings .logout:hover {
+    background-color: grey;
+    color:mintcream;
+}
+
+.button.logout{
+    color: maroon;
+}
+
+.dashboard {
+    grid-template-columns: auto;
+    grid-row: 2/6;
+    margin: 10px;
+    outline: 2px solid black;
+    position: relative;
+    background-image: url('images/ieee5bus_1.jpg');
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-attachment: scroll;
+    background-size: 100% 100%; 
+    justify-content: center;
+}
+
+/* Dashboard page meter */
+[class^="bus-"] {
+    background-color: #f8bccb;
+    background-image: url('images/meter-1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: inline-block;
+    padding: 5px;
+    border: 3px solid black;
+    width: 3.2%;
+    height: 6.5%;
+    border-radius: 12px;
+    text-align: center;
+}
+
+/* Meter position stylings */
+.bus-1{ 
+    position: absolute;
+    top: 12%;
+    left: 17.1%;   
+}
+
+.bus-2{ 
+    position: absolute;
+    bottom: 12%;
+    left: 16.9%;   
+}
+
+.bus-3{ 
+    position: absolute;
+    top: 12%;
+    left: 55.8%;   
+}
+
+.bus-4{ 
+    position: absolute;
+    top: 12%;
+    right: 17.1%;   
+}
+
+.bus-5{ 
+    position: absolute;
+    bottom: 11.9%;
+    right: 19%;   
+}
+
+.bus-6{ 
+    position: absolute;
+    top: 34.8%;
+    left: 5%;   
+}
+
+.bus-7{ 
+    position: absolute;
+    top: 28.4%;
+    left: 28%;   
+}
+
+.bus-8{ 
+    position: absolute;
+    top: 41.5%;
+    left: 28%;   
+}
+
+.bus-9{ 
+    position: absolute;
+    top: 48.8%;
+    left: 47.3%;   
+}
+
+.bus-10{ 
+    position: absolute;
+    top: 60%;
+    left: 47.3%;   
+}
+
+.bus-11{ 
+    position: absolute;
+    top: 28.4%;
+    right: 27.9%;   
+}
+
+.bus-12{ 
+    position: absolute;
+    top: 44%;
+    right: 6.1%;   
+}
+
+/* Specific value styling */
+[class^="bus-"]:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+h3{
+    display: none;
+}
+
+.busvalue{
+    grid-row: 2/6;
+    display: none;
+}
+
+.linevalue{
+    display: none;
+}
+
+.bothvalue{
+    display:none;
+}
+
+.draggable{
+    cursor: move;
+}
+
+/* Bus and line (specific) data stylings */
+#bus1{
+    text-align: center;
+    font-size: 18px;
+    color: #f40541;
+    border-radius: 10px;
+    position: absolute;
+    top: 12%;
+    left: 22.1%;   
+}
+
+#bus2{
+    text-align: center;
+    font-size: 18px;
+    color: #f40541;
+    border-radius: 10px;
+    position: absolute;
+    bottom:12%;
+    left: 21.9%;   
+}
+
+#bus3{
+    text-align: center;
+    font-size: 18px;
+    color: #f40541;
+    border-radius: 10px;
+    position: absolute;
+    top: 10%;
+    left: 60.8%;  
+}
+
+#bus4{
+    text-align: center;
+    font-size: 18px;
+    color: #f40541;
+    border-radius: 10px;
+    position: absolute;
+    top: 15%;
+    right: 22.1%;   
+}
+
+#bus5{
+    text-align: center;
+    font-size: 18px;
+    color: #f40541;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 12%;
+    right: 24.1%;   
+}
+
+#bus6{
+    text-align: center;
+    font-size: 18px;
+    color: #f40541;
+    border-radius: 10px;
+    position: absolute;
+    top: 34.8%;
+    left:10%;   
+}
+
+#bus7{
+    text-align: center;
+    font-size: 18px;
+    color: #f40541;
+    border-radius: 10px;
+    position: absolute;
+    top:27%;
+    left:33%;   
+}
+
+#bus8{
+    text-align: center;
+    font-size: 18px;
+    color: #f40541;
+    border-radius: 10px;
+    position: absolute;
+    top: 38.8%;
+    left: 33%;  
+}
+
+#bus9{
+    text-align: center;
+    font-size: 18px;
+    color: #f40541;
+    border-radius: 10px;
+    position: absolute;
+    top:47.8%;
+    left:52.1%;   
+}
+
+#bus10{
+    text-align: center;
+    font-size: 18px;
+    color: #f40541;
+    border-radius: 10px;
+    position: absolute;
+    top:58.6%;
+    left: 53%;   
+}
+
+#bus11{
+    text-align: center;
+    font-size: 18px;
+    color: #f40541;
+    border-radius: 10px;
+    position: absolute;
+    top: 27%;
+    right:33%;   
+}
+
+#bus12{
+    text-align: center;
+    font-size: 18px;
+    color: #f40541;
+    border-radius: 10px;
+    position: absolute;
+    top:51%;
+    right: 4%;   
+}
