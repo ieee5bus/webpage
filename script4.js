@@ -18,10 +18,15 @@ console.log("Firebase Initialized:", firebase.apps.length > 0 ? "Success" : "Fai
 
 ///////////////////   Auth Protection  //////////////////////
 const auth = firebase.auth();
-firebase.auth().onAuthStateChanged((user) => {
+auth.onAuthStateChanged((user) => {
+    if (user && !sessionStorage.getItem("stillLoggedIn")) {
+        firebase.auth().signOut();
+        sessionStorage.setItem("stillLoggedIn", "true");
+        window.location.replace("index.html");
+        return;}
     if (!user) {
-        alert("Login first, please!");
-        window.location.href = "index.html";}
+        window.location.replace("index.html");}
+    sessionStorage.setItem("stillLoggedIn", "true");
 });
 
 /////////////////// Functions to fetch the data readings //////////////////////
