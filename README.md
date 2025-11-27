@@ -1,46 +1,44 @@
-# IEEE 5-Bus Monitoring & Control System ⚡
+<p align="center">
+  <a href="https://ieee5bus.github.io/webpage/">
+    <img src="images/Logo.png" alt="IEEE 5-Bus Logo">
+    <h3 align="center">IEEE 5-Bus Real-Time Monitoring System</h3>
+  </a>
+</p>
 
-Real-time dashboard for IEEE 5-Bus power system simulation. Monitor voltages, currents, and frequencies across 5 buses + 7 lines. Includes voltage/frequency control and congestion alerts.
-
-[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen)](https://ieee5bus.github.io/webpage/)
-
-## Quick Start
-- [Visit the live site](https://ieee5bus.github.io/webpage/)
-- Login for full controls (Bus 1-5 for monitoring, Lines 1-7 for transmission data)
-- Click any bus/line → see graphs + download CSV/Excel
+<p align="center">
+  A live web dashboard for the <b>IEEE 5-Bus</b> physical model at Power Systems Laboratory, Amrita School of Engineering, Coimbatore.<br>
+  Monitor 5 buses + 7 transmission lines in real time, view interactive graphs, export data, and control voltage/frequency (admin only).
+</p>
 
 ## Features
-| Feature | Description |
-|---------|-------------|
-| **Real-Time Monitoring** | Live data from 12 meters (voltage, current, power, PF, frequency) |
-| **Interactive Diagram** | Click buses/lines for detailed line charts |
-| **Voltage Control** | Manual/auto capacitor switching (8µF, 16µF, 32µF) |
-| **Frequency Control** | Load shedding calculator + region-wise shutdowns |
-| **Congestion Management** | Line overload alerts with blinking indicators |
-| **Data Export** | Single meter CSV or full Excel download |
-| **Responsive Design** | Works on desktop, tablet, mobile |
+- Real-time readings (Voltage, Current, Power, PF, Frequency)
+- Individual bus/line detailed graphs (Combined + Voltage/Current/Power tabs)
+- System-wide meter overview with Excel/CSV export
+- Voltage control via capacitor bank switching (8 µF, 16 µF, 32 µF)
+- Frequency control with automatic/manual load-shedding logic including congestion management
+- Live status indicator + blinking alerts for line overloads
+- Secure hard-coded authentication for control pages
 
-## Tech Stack
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![Vanilla JS](https://img.shields.io/badge/Vanilla_JS-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![Firebase](https://img.shields.io/badge/Firebase-FFCB00?style=for-the-badge&logo=firebase&logoColor=black)
-![Chart.js](https://img.shields.io/badge/Chart.js-FF6384?style=for-the-badge&logo=chartdotjs&logoColor=white)
+## Built With
+- HTML5 / CSS3 / Vanilla JS
+- Chart.js for graphs
+- Firebase Realtime Database
+- SheetJS (XLSX) for Excel export
+- Pure passion & zero chill
 
-## The Team
-**Guide**  
-Dr. S Balamurugan  
-Chairperson & Professor, Department of EEE.
-
-**Developers**  
+## Team
 - Ashwanth S  
 - Charanya G  
 - Dharunjayavinayak R  
 - Dheekshitha R  
 
-## Disclaimer
-The content and design are the intellectual property of the authors and should not be reproduced without permission. 
-Made for **academic use only** • 2025 • Amrita Vishwa Vidyapeetham
+**Guided by:** Dr. S. Balamurugan, Chairperson & Professor, 
+Department of EEE, ASE
 
----
-• Issues & suggestions always welcome!
+## Disclaimer
+**Academic project** – created for educational & lab demonstration purposes only.
+The content and design are the intellectual property of the authors and should not be reproduced without permission.
+
+----
+Issues and Suggestions are always Welcome!
+Let’s keep the grid alive ⚡
