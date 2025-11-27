@@ -23,6 +23,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const database = firebase.database();
     console.log("Firebase Initialized:", firebase.apps.length > 0 ? "Success" : "Failed");
 
+    ///////////////////   Auth Protection  //////////////////////
+firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
+    .catch((error) => {
+        console.error("Persistence error:", error);
+    });
+firebase.auth().onAuthStateChanged((user) => {
+    // If no user → redirect to login
+    if (!user) {
+        window.location.replace("index.html");
+        return;
+    }
+    // If user exists → allow access (nothing else needed)
+});
+
     function updateControlField(field, value) {
         database.ref(`control/${field}`).set(value)
             .then(() => console.log(`${field} updated to`, value))
