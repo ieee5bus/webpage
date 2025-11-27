@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="control_auth.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
 </head>
+
 <body>
     <script src="control_auth.js" defer></script>
     <header>
@@ -15,7 +17,7 @@
             <a href="dashboard.html">Dashboard</a>
             <button class="btnLogin-popup">Login</button>
         </nav>
-    </header>  
+    </header>
     <section id="home">
         <div class="wrapper">
             <span class="icon-close">
@@ -25,17 +27,20 @@
                 <h2>Login</h2>
                 <form id="loginForm" action="#">
                     <div class="input-box">
-                        <span class="icon"><ion-icon name="person"></ion-icon></span> 
-                        <input type="userid" required>
+                        <span class="icon"><ion-icon name="person"></ion-icon></span>
+                        <input type="text" id="userid" required>
                         <label>User ID</label>
                     </div>
+
                     <div class="input-box">
-                        <span class="icon"><ion-icon name="lock-closed"></ion-icon></span> 
-                        <input type="password" required>
+                        <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                        <input type="password" id="password" required>
                         <label>Password</label>
-                    </div>  
-                    <button type="submit" class="btn">Login</button> 
-                </form>    
+                    </div>
+
+                    <button type="submit" class="btn">Login</button>
+                </form>
+
             </div>
         </div>
     </section>
@@ -44,4 +49,3 @@
 </body>
 
 </html>
-
