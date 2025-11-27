@@ -23,6 +23,13 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
     const userHash = CryptoJS.SHA256(userid).toString();
     const passHash = CryptoJS.SHA256(password).toString();
 
+    console.log("Typed User:", userid);
+console.log("Typed Pass:", password);
+
+console.log("User Hash:", userHash);
+console.log("Correct Hash:", correctUserHash);
+
+
     if (userHash === correctUserHash && passHash === correctPassHash) {
 
         const expiry = Date.now() + 3600000; // 1 hour
@@ -39,3 +46,4 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
         document.getElementById("password").value = "";
     }
 });
+
