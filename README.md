@@ -1,48 +1,46 @@
-# IEEE 5-Bus Real-Time Monitoring & Control System ⚡
+# IEEE 5-Bus Monitoring & Control System ⚡
 
-![IEEE 5-Bus System](https://ieee5bus.github.io/webpage/images/background.jpg)
+Real-time dashboard for IEEE 5-Bus power system simulation. Monitor voltages, currents, and frequencies across 5 buses + 7 lines. Includes voltage/frequency control and congestion alerts.
 
-> Live monitoring + power system controls.
-> Power Systems Laboratory • Amrita Vishwa Vidyapeetham, Coimbatore.
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen)](https://ieee5bus.github.io/webpage/)
 
-### Live Site
-https://ieee5bus.github.io/webpage/
+## Quick Start
+- [Visit the live site](https://ieee5bus.github.io/webpage/)
+- Login for full controls (Bus 1-5 for monitoring, Lines 1-7 for transmission data)
+- Click any bus/line → see graphs + download CSV/Excel
 
-### Features That Slap
-| Feature                        | Status |
-|-------------------------------|--------|
-| Real-time data from all 12 meters (5 buses + 7 lines) | Live |
-| Interactive single-line diagram (click any bus/line → graphs) | Done |
-| Voltage control – switch 8 µF / 16 µF / 32 µF capacitor banks | Done |
-| Frequency control – auto + manual load shedding | Done |
-| Download single meter CSV or all meters Excel | Done |
-| Mobile + tablet friendly | Done |
+## Features
+| Feature | Description |
+|---------|-------------|
+| **Real-Time Monitoring** | Live data from 12 meters (voltage, current, power, PF, frequency) |
+| **Interactive Diagram** | Click buses/lines for detailed line charts |
+| **Voltage Control** | Manual/auto capacitor switching (8µF, 16µF, 32µF) |
+| **Frequency Control** | Load shedding calculator + region-wise shutdowns |
+| **Congestion Management** | Line overload alerts with blinking indicators |
+| **Data Export** | Single meter CSV or full Excel download |
+| **Responsive Design** | Works on desktop, tablet, mobile |
 
-### The Squad ⚡
+## Tech Stack
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![Vanilla JS](https://img.shields.io/badge/Vanilla_JS-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Firebase](https://img.shields.io/badge/Firebase-FFCB00?style=for-the-badge&logo=firebase&logoColor=black)
+![Chart.js](https://img.shields.io/badge/Chart.js-FF6384?style=for-the-badge&logo=chartdotjs&logoColor=white)
 
+## The Team
 **Guide**  
 Dr. S Balamurugan  
-Chairperson and Professor, Department of EEE, Amrita Vishwa Vidyapeetham, CBE.
+Chairperson & Professor, Department of EEE.
 
-**Team Members**  
+**Developers**  
 - Ashwanth S  
 - Charanya G  
 - Dharunjayavinayak R  
-- Dheekshitha R
-  
-(We survived countless all-nighters, burnt relays, and way too much coffee ☕)
+- Dheekshitha R  
 
-### Built With
-- HTML • CSS • Vanilla JavaScript  
-- Firebase Realtime Database  
-- Chart.js (graphs)  
-- SheetJS (Excel export)  
-- Pure passion & zero chill
-
-**Disclaimer**  
-The content and design are the intellectual property of the authors and should not be reproduced without permission.
-Made for **academic purpose only** • 2025  
-Amrita Vishwa Vidyapeetham
+## Disclaimer
+The content and design are the intellectual property of the authors and should not be reproduced without permission. 
+Made for **academic use only** • 2025 • Amrita Vishwa Vidyapeetham
 
 ---
 • Issues & suggestions always welcome!
