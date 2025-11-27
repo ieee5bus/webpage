@@ -145,58 +145,61 @@ control.addEventListener('click', (event) => {
 
 
 ///////////////////   Data entry live status   //////////////////////
-
 const DB_URL = 'https://ieee5bus-default-rtdb.asia-southeast1.firebasedatabase.app/meters/Unit_1.json';
 const AUTH_QS = '';
-const POLL_MS = 60_000;
-
+const POLL_MS = 30_000; // checks every 30 sec
 async function fetchLatestTimestamp() {
     const url = `${DB_URL}${AUTH_QS ? AUTH_QS + '&' : '?'}orderBy="$key"&limitToLast=1`;
     const res = await fetch(url);
-    if (!res.ok) throw new Error(`Firebase fetch failed (${res.status})`);
+    if (!res.ok) throw new Error(`Firebase fetch failed (${res.status})`);
     const data = await res.json();
     if (!data || !Object.keys(data).length) throw new Error('No data at /meters/Unit_1');
     const latestKey = Object.keys(data)[0];
-    return typeof data[latestKey] === 'string'
-        ? data[latestKey]
-        : data[latestKey].timestamp ?? latestKey;
+    const entry = data[latestKey];
+    return typeof entry === 'string' ? entry : (entry.Timestamp || latestKey);
 }
-
-function updateStatusElement(text) {
+function updateStatus(text) {
     const el = document.querySelector('#status') || document.querySelector('.status');
-    if (el) el.textContent = text;
-    else console.warn('Status element not found (id/class "status")');
-}
-
-function formatDDMMYYYY(yyyymmdd) {
-    return `${yyyymmdd.slice(6, 8)}-${yyyymmdd.slice(4, 6)}-${yyyymmdd.slice(0, 4)}`;
-}
-
-function compareAndDisplay(ts) {
-    const dataDate = ts.slice(0, 8); // YYYYMMDD
-    const now = new Date();
-    const today = `${now.getFullYear()}${String(now.getMonth() + 1).padStart(2, '0')}${String(now.getDate()).padStart(2, '0')}`;
-    const el = document.querySelector('#status') || document.querySelector('.status');
-    if (!el) return;
-    if (dataDate === today) {
-        el.textContent = '⦾ Data is Live';
-        el.classList.add('blinking');
-    } else {
-        const formattedDate = formatDDMMYYYY(dataDate);
-        el.textContent = `⦾ Last updated on ${formattedDate}`;
+    if (el) {
+        el.textContent = text;
         el.classList.add('blinking');
     }
 }
-
+function formatTimeAgo(ms) {
+    const minutes = Math.floor(ms / 60000);
+    if (minutes < 60) return `${minutes} min ago`;
+    const hours = Math.floor(minutes / 60);
+    if (hours < 24) return `${hours} hour${hours > 1 ? 's' : ''} ago`;
+    const days = Math.floor(hours / 24);
+    return `${days} day${days > 1 ? 's' : ''} ago`;
+}
 async function poll() {
     try {
-        const ts = await fetchLatestTimestamp();
-        compareAndDisplay(ts);
+        const latestTsStr = await fetchLatestTimestamp(); 
+        const lastUpdate = new Date(latestTsStr.replace(/-/g, '/')); // fix for Safari
+        const now = new Date();
+        const diffMs = now - lastUpdate;
+        const diffMins = Math.round(diffMs / 60000);
+
+        if (diffMins < 3) {
+            updateStatus('Data is Live');
+        } else {
+            const timeStr = lastUpdate.toLocaleString('en-IN', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: false
+            }).replace(',', '');
+
+            const ago = formatTimeAgo(diffMs);
+            updateStatus(`Last updated: ${timeStr} (${ago})`);
+        }
     } catch (err) {
         console.error(err);
-        updateStatusElement('Status unavailable');
+        updateStatus('Status unavailable');
     }
 }
-
 poll();
 setInterval(poll, POLL_MS);
