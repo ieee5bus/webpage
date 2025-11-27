@@ -17,7 +17,9 @@
             <a href="#!" id="lineinformation">Line Info</a>
             <a href="#!" id="both">Line and Bus</a>
             <a href="#!" id="allmeter">System Readings</a>
-            <button class="logout" onclick="logout()">Logout</button>
+            <button class="logout" onclick="firebase.auth().signOut().then(() => window.location.href='index.html')">
+             Logout
+            </button>
          </div> 
       </div>
 
@@ -98,4 +100,5 @@
       </script>
    
    </body>
+
 </html>
