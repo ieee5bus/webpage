@@ -16,6 +16,14 @@ firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
 console.log("Firebase Initialized:", firebase.apps.length > 0 ? "Success" : "Failed");
 
+///////////////////   Auth Protection  //////////////////////
+const auth = firebase.auth();   // this line creates the auth object
+firebase.auth().onAuthStateChanged((user) => {
+    if (!user) {
+        alert("Login first, dheeks!");
+        window.location.href = "index.html";}
+});
+
 ///////////////////  Corresponding Meter Information Dispay  //////////////////////
 document.querySelectorAll('[class^="bus-"]').forEach(card => {
     card.addEventListener('click', () => {
@@ -203,3 +211,4 @@ async function poll() {
 }
 poll();
 setInterval(poll, POLL_MS);
+
