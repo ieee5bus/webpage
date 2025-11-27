@@ -17,11 +17,9 @@ const database = firebase.database();
 console.log("Firebase Initialized:", firebase.apps.length > 0 ? "Success" : "Failed");
 
 ///////////////////   Auth Protection  //////////////////////
-const auth = firebase.auth();   // this line creates the auth object
-firebase.auth().onAuthStateChanged((user) => {
-    if (!user) {
-        alert("Login first, please!");
-        window.location.href = "index.html";}
+const auth = firebase.auth();
+auth.onAuthStateChanged((user) => {
+    if (!user) window.location.replace("index.html");
 });
 
 ///////////////////  Corresponding Meter Information Dispay  //////////////////////
@@ -211,6 +209,7 @@ async function poll() {
 }
 poll();
 setInterval(poll, POLL_MS);
+
 
 
 
