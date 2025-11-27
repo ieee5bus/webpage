@@ -1,8 +1,8 @@
 <p align="center">
   <a href="https://ieee5bus.github.io/webpage/">
-    <img src="images/Logo.png" alt="IEEE 5-Bus Logo" width="600">
+    <img src="images/Logo.png" alt="IEEE 5-Bus Logo" width="550">
     <h3 align="center">IEEE 5-Bus Real-Time Monitoring System</h3>
-  </a>
+  </a
 </p>
 
 <p align="center">
