@@ -20,7 +20,7 @@ console.log("Firebase Initialized:", firebase.apps.length > 0 ? "Success" : "Fai
 const auth = firebase.auth();   // this line creates the auth object
 firebase.auth().onAuthStateChanged((user) => {
     if (!user) {
-        alert("Login first, dheeks!");
+        alert("Login first, please!");
         window.location.href = "index.html";}
 });
 
@@ -211,4 +211,5 @@ async function poll() {
 }
 poll();
 setInterval(poll, POLL_MS);
+
 
