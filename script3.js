@@ -372,11 +372,16 @@ const database = firebase.database();
 console.log("Firebase Initialized:", firebase.apps.length > 0 ? "Success" : "Failed");
 
 ///////////////////   Auth Protection  //////////////////////
-const auth = firebase.auth();   // this line creates the auth object
-firebase.auth().onAuthStateChanged((user) => {
+const auth = firebase.auth();
+auth.onAuthStateChanged((user) => {
+    if (user && !sessionStorage.getItem("stillLoggedIn")) {
+        firebase.auth().signOut();
+        sessionStorage.setItem("stillLoggedIn", "true");
+        window.location.replace("index.html");
+        return;}
     if (!user) {
-        alert("Login first, please!");
-        window.location.href = "index.html";}
+        window.location.replace("index.html");}
+    sessionStorage.setItem("stillLoggedIn", "true");
 });
 
 /////////////////// Meter readings data fetch and readings //////////////////////
@@ -546,4 +551,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
 
