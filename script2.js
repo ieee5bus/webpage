@@ -17,17 +17,19 @@ const database = firebase.database();
 console.log("Firebase Initialized:", firebase.apps.length > 0 ? "Success" : "Failed");
 
 ///////////////////   Auth Protection  //////////////////////
-const auth = firebase.auth();
-auth.onAuthStateChanged((user) => {
-    if (user && !sessionStorage.getItem("stillLoggedIn")) {
-        firebase.auth().signOut();
-        sessionStorage.setItem("stillLoggedIn", "true");
-        window.location.replace("index.html");
-        return;}
+firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
+    .catch((error) => {
+        console.error("Persistence error:", error);
+    });
+firebase.auth().onAuthStateChanged((user) => {
+    // If no user → redirect to login
     if (!user) {
-        window.location.replace("index.html");}
-    sessionStorage.setItem("stillLoggedIn", "true");
+        window.location.replace("index.html");
+        return;
+    }
+    // If user exists → allow access (nothing else needed)
 });
+
 
 ///////////////////  Corresponding Meter Information Dispay  //////////////////////
 document.querySelectorAll('[class^="bus-"]').forEach(card => {
