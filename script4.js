@@ -17,7 +17,7 @@ const database = firebase.database();
 console.log("Firebase Initialized:", firebase.apps.length > 0 ? "Success" : "Failed");
 
 ///////////////////   Auth Protection  //////////////////////
-const auth = firebase.auth();   // this line creates the auth object
+const auth = firebase.auth();
 firebase.auth().onAuthStateChanged((user) => {
     if (!user) {
         alert("Login first, please!");
@@ -121,3 +121,4 @@ document.getElementById("download-all-btn").addEventListener("click", async () =
     }
 
 });
+
