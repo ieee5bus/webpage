@@ -19,7 +19,14 @@ console.log("Firebase Initialized:", firebase.apps.length > 0 ? "Success" : "Fai
 ///////////////////   Auth Protection  //////////////////////
 const auth = firebase.auth();
 auth.onAuthStateChanged((user) => {
-    if (!user) window.location.replace("index.html");
+    if (user && !sessionStorage.getItem("stillLoggedIn")) {
+        firebase.auth().signOut();
+        sessionStorage.setItem("stillLoggedIn", "true");
+        window.location.replace("index.html");
+        return;}
+    if (!user) {
+        window.location.replace("index.html");}
+    sessionStorage.setItem("stillLoggedIn", "true");
 });
 
 ///////////////////  Corresponding Meter Information Dispay  //////////////////////
@@ -209,6 +216,7 @@ async function poll() {
 }
 poll();
 setInterval(poll, POLL_MS);
+
 
 
 
