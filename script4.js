@@ -14,6 +14,15 @@ const firebaseConfig = {
 /////////////////// Firebase Initialization //////////////////////
 firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
+console.log("Firebase Initialized:", firebase.apps.length > 0 ? "Success" : "Failed");
+
+///////////////////   Auth Protection  //////////////////////
+const auth = firebase.auth();   // this line creates the auth object
+firebase.auth().onAuthStateChanged((user) => {
+    if (!user) {
+        alert("Login first, please!");
+        window.location.href = "index.html";}
+});
 
 /////////////////// Functions to fetch the data readings //////////////////////
 async function dataentry() {
@@ -110,4 +119,5 @@ document.getElementById("download-all-btn").addEventListener("click", async () =
         console.error("Error generating Excel file:", error);
         alert("An error occurred while generating the Excel file.");
     }
+
 });
