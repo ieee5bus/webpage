@@ -16,8 +16,9 @@ document.getElementById("loginForm").addEventListener("submit", function(e) {
         localStorage.setItem("control_until", expiry);
         window.location.href = "Control_freq.html";
     } else {
-        alert("Wrong credentials, dheeks!");
+        alert("Wrong credentials!!");
         document.querySelector('input[type="userid"]').value = "";
         document.querySelector('input[type="password"]').value = "";
     }
 });
+
