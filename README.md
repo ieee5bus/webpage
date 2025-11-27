@@ -32,13 +32,15 @@
 - Dharunjayavinayak R  
 - Dheekshitha R  
 
-**Guided by:** Dr. S. Balamurugan, Chairperson & Professor, 
-Department of EEE, ASE
+**Guided by:** Dr. S. Balamurugan, 
+
+Chairperson & Professor, Department of EEE.
 
 ## Disclaimer
 **Academic project** – created for educational & lab demonstration purposes only.
-The content and design are the intellectual property of the authors and should not be reproduced without permission.
+The content and design are the intellectual property of the authors and must not be reproduced without permission.
 
 ----
-Issues and Suggestions are always Welcome!
+Issues and Suggestions are always welcome!
+
 Let’s keep the grid alive ⚡
